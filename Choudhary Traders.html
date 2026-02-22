@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choudhary Traders - Electronics & Home Appliances in Shyam Nagar, Delhi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo p {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1550009158-9ebf69173e03?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 5%;
+            margin-top: 70px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: #ffd700;
+            color: #1e3c72;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(255,215,0,0.4);
+        }
+
+        /* Categories Section */
+        .categories {
+            padding: 5rem 5%;
+            background-color: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h3 {
+            font-size: 2.5rem;
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .category-card h4 {
+            font-size: 1.5rem;
+            color: #1e3c72;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .category-card p {
+            color: #666;
+            padding: 0 1rem 1rem;
+        }
+
+        /* Products Showcase */
+        .products {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-card h4 {
+            font-size: 1.3rem;
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-card .brand {
+            color: #ff6b6b;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-card .price {
+            font-size: 1.4rem;
+            color: #2a5298;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .product-card .features {
+            list-style: none;
+            color: #666;
+            font-size: 0.9rem;
+            margin: 1rem 0;
+        }
+
+        .product-card .features li {
+            margin: 0.3rem 0;
+        }
+
+        .buy-btn {
+            background-color: #1e3c72;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        .buy-btn:hover {
+            background-color: #2a5298;
+        }
+
+        /* AC Special Section */
+        .ac-special {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 4rem 5%;
+            color: white;
+            text-align: center;
+        }
+
+        .ac-special h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .ac-special p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .ac-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 2rem auto;
+        }
+
+        .ac-feature-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 5%;
+            background-color: white;
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            color: #1e3c72;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1e3c72;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 5%;
+            background-color: #f8f9fa;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            color: #1e3c72;
+            margin-bottom: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #1e3c72;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .info-text h4 {
+            color: #1e3c72;
+            margin-bottom: 0.3rem;
+        }
+
+        .info-text p {
+            color: #666;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: #1e3c72;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            font-size: 1.1rem;
+        }
+
+        .submit-btn:hover {
+            background-color: #2a5298;
+        }
+
+        /* Map Section */
+        .map-container {
+            width: 100%;
+            height: 450px;
+            border-top: 4px solid #1e3c72;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e3c72;
+            color: white;
+            padding: 3rem 5% 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #fff;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .footer-section ul li a:hover {
+            opacity: 1;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: #ffd700;
+            color: #1e3c72;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Choudhary Traders</h1>
+                <p>Since 2005 | Shyam Nagar, Delhi</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Your Trusted Electronics Partner Since 2005</h2>
+            <p>Premium Electronics, Home Appliances & AC Specialists in Shyam Nagar, Vishnu Garden, Delhi</p>
+            <a href="#products" class="cta-button">Explore Our Products</a>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="categories">
+        <div class="section-title">
+            <h3>Our Product Categories</h3>
+            <p>Quality electronics and appliances from top brands</p>
+        </div>
+        <div class="category-grid">
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Televisions">
+                <h4>LED TVs</h4>
+                <p>Smart TVs, 4K Ultra HD, OLED from Sony, Samsung, LG</p>
+            </div>
+            <div class="category-card">
+                <img src="https://static.godrejenterprises.com/Refcard1_Aipowered_6527db30c3.jpg" alt="Refrigerators">
+                <h4>Refrigerators</h4>
+                <p>Single Door, Double Door, Side-by-Side from top brands</p>
+            </div>
+            <div class="category-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5iYZzDM8k_AM6uSp5QnBEqs_4ev63xa923g&s" alt="Washing Machines">
+                <h4>Washing Machines</h4>
+                <p>Fully Automatic, Front Load, Semi-Automatic</p>
+            </div>
+            <div class="category-card">
+                <img src="https://aws-obg-image-lb-1.tcl.com/content/dam/brandsite/global/images-for-blog/ac-maintenance-for-lasting-system-pc.jpg" alt="Air Conditioners">
+                <h4>Air Conditioners</h4>
+                <p>Split AC, Window AC, Inverter Technology</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Showcase -->
+    <section id="products" class="products">
+        <div class="section-title">
+            <h3>Featured Products</h3>
+            <p>Best selling electronics in Shyam Nagar</p>
+        </div>
+        <div class="product-grid">
+            <!-- Product 1 - Sony TV -->
+            <div class="product-card">
+                <img src="https://shopatsc.com/cdn/shop/files/01-55XR80-Primary-Image.jpg?v=1756185999" alt="Sony Bravia 55 Inch 4K TV">
+                <div class="product-info">
+                    <h4>Sony Bravia 55"</h4>
+                    <p class="brand">Sony</p>
+                    <ul class="features">
+                        <li>4K Ultra HD</li>
+                        <li>Android TV</li>
+                        <li>Dolby Vision</li>
+                    </ul>
+                    <p class="price">₹54,990</p>
+                    <button class="buy-btn">View Details</button>
+                </div>
+            </div>
+
+            <!-- Product 2 - LG Refrigerator -->
+            <div class="product-card">
+                <img src="https://m.media-amazon.com/images/I/71TzXU5vwIL._AC_UF350,350_QL80_.jpg" alt="LG Double Door Refrigerator">
+                <div class="product-info">
+                    <h4>LG Double Door</h4>
+                    <p class="brand">LG</p>
+                    <ul class="features">
+                        <li>260L Capacity</li>
+                        <li>Smart Inverter</li>
+                        <li>Moisture Balance</li>
+                    </ul>
+                    <p class="price">₹28,500</p>
+                    <button class="buy-btn">View Details</button>
+                </div>
+            </div>
+
+            <!-- Product 3 - Samsung Washing Machine -->
+            <div class="product-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIQ810D6fxuP_gg_zrc7BJUqIGod-cEyB-YQ&s" alt="Samsung Washing Machine">
+                <div class="product-info">
+                    <h4>Samsung Washing Machine</h4>
+                    <p class="brand">Samsung</p>
+                    <ul class="features">
+                        <li>7kg Fully Auto</li>
+                        <li>Eco Bubble</li>
+                        <li>Digital Inverter</li>
+                    </ul>
+                    <p class="price">₹22,990</p>
+                    <button class="buy-btn">View Details</button>
+                </div>
+            </div>
+
+            <!-- Product 4 - Daikin AC -->
+            <div class="product-card">
+                <img src="https://m.media-amazon.com/images/I/61sDrwfiOML._AC_UF350,350_QL80_.jpg" alt="Daikin Split AC">
+                <div class="product-info">
+                    <h4>Daikin Split AC</h4>
+                    <p class="brand">Daikin</p>
+                    <ul class="features">
+                        <li>1.5 Ton</li>
+                        <li>5 Star Rating</li>
+                        <li>Inverter Technology</li>
+                    </ul>
+                    <p class="price">₹34,500</p>
+                    <button class="buy-btn">View Details</button>
+                </div>
+            </div>
+
+            <!-- Product 5 - HP Laptop -->
+            <div class="product-card">
+                <img src="https://rukminim2.flixcart.com/image/480/640/xif0q/computer/0/q/x/15-eg2009tu-thin-and-light-laptop-hp-original-imah2mwyg5e8devr.jpeg?q=90" alt="HP Pavilion Laptop">
+                <div class="product-info">
+                    <h4>HP Pavilion</h4>
+                    <p class="brand">HP</p>
+                    <ul class="features">
+                        <li>i5 11th Gen</li>
+                        <li>8GB RAM/512GB SSD</li>
+                        <li>Windows 11</li>
+                    </ul>
+                    <p class="price">₹52,990</p>
+                    <button class="buy-btn">View Details</button>
+                </div>
+            </div>
+
+            <!-- Product 6 - Voltas AC -->
+            <div class="product-card">
+                <img src="https://mahajanelectronics.com/cdn/shop/files/2_40624f12-6a29-43c5-81cf-108c1088eaac.jpg?v=1764242185&width=1500" alt="Voltas AC">
+                <div class="product-info">
+                    <h4>Voltas AC</h4>
+                    <p class="brand">Voltas</p>
+                    <ul class="features">
+                        <li>1.5 Ton</li>
+                        <li>3 Star</li>
+                        <li>Installation Included</li>
+                    </ul>
+                    <p class="price">₹29,990</p>
+                    <button class="buy-btn">View Details</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AC Special Section -->
+    <section class="ac-special">
+        <h3>❄️ Summer Special: Air Conditioners</h3>
+        <p>We specialize in AC sales and installation. Get the best cooling solutions for your home and office.</p>
+        <div class="ac-features">
+            <div class="ac-feature-item">
+                <h4>Free Installation</h4>
+                <p>With every AC purchase</p>
+            </div>
+            <div class="ac-feature-item">
+                <h4>All Brands</h4>
+                <p>Daikin, Voltas, LG, Samsung</p>
+            </div>
+            <div class="ac-feature-item">
+                <h4>Expert Service</h4>
+                <p>Trained technicians</p>
+            </div>
+            <div class="ac-feature-item">
+                <h4>Best Prices</h4>
+                <p>Price match guarantee</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h3>About Choudhary Traders</h3>
+                <p>Welcome to Choudhary Traders, your number one source for quality electronics and home appliances in Shyam Nagar, Vishnu Garden, Delhi. We're dedicated to providing you the very best products, with a focus on reliability, customer service, and value for money.</p>
+                <p>Founded in 2005, Choudhary Traders has come a long way from its beginnings. When we first started out, our passion for helping people find the right electronics drove us to start this business.</p>
+                <p>We now serve customers throughout West Delhi and offer a wide range of products including LED TVs, refrigerators, washing machines, air conditioners, and laptops from top brands.</p>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">18+</div>
+                        <div class="stat-label">Years of Service</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5000+</div>
+                        <div class="stat-label">Happy Customers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Brands Available</div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Our Store">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Get In Touch</h3>
+                <div class="info-item">
+                    <div class="info-icon">📍</div>
+                    <div class="info-text">
+                        <h4>Visit Us</h4>
+                        <p>D-17, CH Harpal Chandela Road, Pocket A,<br>Shyam Nagar, Vishnu Garden,<br>New Delhi, Delhi 110018, India</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">📞</div>
+                    <div class="info-text">
+                        <h4>Call Us</h4>
+                        <p>+91 98765 43210<br>+91 98765 43211</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">✉️</div>
+                    <div class="info-text">
+                        <h4>Email</h4>
+                        <p>info@choudharytraders.com<br>sales@choudharytraders.com</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">⏰</div>
+                    <div class="info-text">
+                        <h4>Store Hours</h4>
+                        <p>Monday - Saturday: 10:00 AM - 8:00 PM<br>Sunday: 11:00 AM - 5:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3 style="margin-bottom: 1.5rem; color: #1e3c72;">Send us a message</h3>
+                <form>
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Phone Number">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="I'm interested in... (AC, TV, etc.)" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section with Exact Location -->
+    <div class="map-container">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.928418473279!2d77.07123456789!3d28.652123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d04b2e8d5b3c7%3A0x1234567890abcdef!2sD-17%2C%20CH%20Harpal%20Chandela%20Rd%2C%20Pocket%20A%2C%20Shyam%20Nagar%2C%20Vishnu%20Garden%2C%20Delhi%2C%20110018!5e0!3m2!1sen!2sin!4v1709123456789!5m2!1sen!2sin" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Choudhary Traders</h4>
+                <p>Your trusted electronics partner in Shyam Nagar, Delhi since 2005. Quality products, best prices, and excellent service.</p>
+                <div class="social-links">
+                    <a href="#">f</a>
+                    <a href="#">t</a>
+                    <a href="#">in</a>
+                    <a href="#">ig</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Our Categories</h4>
+                <ul>
+                    <li><a href="#">LED TVs</a></li>
+                    <li><a href="#">Refrigerators</a></li>
+                    <li><a href="#">Washing Machines</a></li>
+                    <li><a href="#">Air Conditioners</a></li>
+                    <li><a href="#">Laptops</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <p>Subscribe for offers and updates</p>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" style="padding: 0.5rem; width: 100%;">
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Choudhary Traders. All rights reserved. | D-17, CH Harpal Chandela Road, Pocket A, Shyam Nagar, Vishnu Garden, New Delhi, Delhi 110018</p>
+        </div>
+    </footer>
+</body>
+</html>
